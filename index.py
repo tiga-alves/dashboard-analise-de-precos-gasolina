@@ -6,7 +6,8 @@ import pandas as pd
 from app import *
 from dash_bootstrap_templates import ThemeSwitchAIO
 
-# Reading data
-df = pd.read_csv('data_clean.csv')
-
-
+#Styles =================================
+url_theme1 = dbc.themes.VAPOR 
+url_theme2 = dbc.themes.FLATLY
+template_theme1 = 'vapor'
+template_theme2 = 'flatly'
