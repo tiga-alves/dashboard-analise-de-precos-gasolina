@@ -41,3 +41,21 @@ app.layout = dbc.Container([
         ])
     ])
 ])
+
+# Callbacks ===========================
+@app.callback(
+    Output('line_graph', 'figure'),
+    Input('estados', 'value')
+)
+
+def line(estados):
+    df_data = df.copy(deep=True)
+    mask = df_data['ESTADO'].isin(estados)
+    
+    fig = px.line(df_data[mask], x= 'DATA', y= 'VALOR REVENDA (R$/L)',
+                  color='ESTADO')
+    return fig
+  
+# Rodar o servidor ====================
+if __name__ == '__main__':
+    app.run_server(debug=True, port='8051')
